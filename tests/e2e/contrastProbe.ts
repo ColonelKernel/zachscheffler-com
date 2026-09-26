@@ -137,7 +137,13 @@ const PROBE = `(() => {
   let checked = 0;
 
   for (const el of document.querySelectorAll("body *")) {
-    const text = [...el.childNodes]
+    // Native dropdown options have styles but no painted box while closed.
+    // Measure the select itself using its displayed value; skip zero-area nodes.
+    const rect = el.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) continue;
+    const text = el instanceof HTMLSelectElement
+      ? [...el.selectedOptions].map((option) => option.textContent.trim()).join(" ")
+      : [...el.childNodes]
       .filter((n) => n.nodeType === 3)
       .map((n) => n.textContent.trim())
       .join(" ")
@@ -212,8 +218,6 @@ const PROBE = `(() => {
       size,
       cls: String(el.className).slice(0, 70),
     };
-
-    const rect = el.getBoundingClientRect();
 
     const why = imageBacked
       ? "css-background-image"
