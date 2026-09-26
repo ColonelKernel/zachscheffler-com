@@ -8,7 +8,7 @@ import { test, expect } from "@playwright/test";
  * a horizontal scrollbar, because the footer renders on all routes.
  */
 
-const ROUTES = ["/", "/cv", "/work", "/projects", "/tools", "/tools/rhythm"];
+const ROUTES = ["/", "/cv", "/work", "/projects", "/tools", "/tools/rhythm", "/projects/audio-agents", "/projects/tonnetzmetro", "/projects/groove-prediction", "/projects/ableton-tools", "/projects/jsfx-forge", "/projects/portfolio-engineering"];
 
 test.use({ viewport: { width: 375, height: 812 } });
 

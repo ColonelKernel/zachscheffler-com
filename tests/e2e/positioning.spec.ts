@@ -16,7 +16,7 @@ import { expect, test } from "@playwright/test";
  * many wordings; what they forbid is the specific regression.
  */
 
-test("the homepage leads with the public-sector identity and the right location", async ({
+test("the homepage connects data science and creative systems with the right location", async ({
   page,
 }) => {
   await page.goto("/");
@@ -26,7 +26,7 @@ test("the homepage leads with the public-sector identity and the right location"
   // Rios — and because government, multilateral and non-profit postings screen
   // on "policy" and "public" before they screen on tooling.
   const h1 = page.locator("h1").first();
-  await expect(h1).toContainText("Public Policy");
+  await expect(h1).toContainText("Creative Systems Engineer");
   await expect(h1).toContainText("Data Scientist");
 
   // The specialism survives the reframe rather than being replaced by it: the

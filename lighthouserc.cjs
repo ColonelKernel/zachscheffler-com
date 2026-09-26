@@ -17,11 +17,17 @@ module.exports = {
         // The six routes this file used to omit were the six heaviest:
         // /music-analytics (recharts, listed above), /work (embed facades),
         // and the harmony tools. An accessibility floor of 1.0 applied only to
-        // the routes least likely to break it is not a floor. All fourteen
+        // the routes least likely to break it is not a floor. All twenty
         // real routes are audited now — /tools/map merged into /tools/rhythm,
         // and /groove-atlas is retired.
         "http://127.0.0.1:4173/tools/circle",
         "http://127.0.0.1:4173/tools/tonnetz",
+        "http://127.0.0.1:4173/projects/audio-agents",
+        "http://127.0.0.1:4173/projects/tonnetzmetro",
+        "http://127.0.0.1:4173/projects/groove-prediction",
+        "http://127.0.0.1:4173/projects/ableton-tools",
+        "http://127.0.0.1:4173/projects/jsfx-forge",
+        "http://127.0.0.1:4173/projects/portfolio-engineering",
         "http://127.0.0.1:4173/work",
       ],
       startServerCommand: "npm run preview -- --host 127.0.0.1 --port 4173",

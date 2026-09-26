@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 
 import SystemsPreview from "./SystemsPreview";
-import { ANALYTICS_SPARKS } from "@/content/analyticsSparks";
+import { FEATURED_PROJECTS } from "@/content/projects";
 import { ROUTE_META } from "@/app/routeMeta";
 
 /**
@@ -49,26 +49,19 @@ describe("SystemsPreview", () => {
     }
   });
 
-  it("leads with the transit atlas, which is what these roles screen on", () => {
+  it("features exactly the six curated families, each with a case-study link", () => {
     const { container } = renderSection();
-    const headings = [...container.querySelectorAll("h3")].map((h) => h.textContent ?? "");
-    expect(headings[0]).toMatch(/World Transit Atlas/i);
-    expect(headings.join(" | ")).toMatch(/Music Catalog Intelligence/i);
+    const headings = [...container.querySelectorAll("h3")].map(h=>h.textContent);
+    expect(headings).toEqual(FEATURED_PROJECTS.map(p=>p.title));
+    expect(headings).toHaveLength(6);
+    for (const project of FEATURED_PROJECTS) {
+      expect(container.querySelector(`a[href="${project.links[0].url}"]`)).not.toBeNull();
+    }
   });
 
-  it("plots the derived series, not decoration, and captions what it plots", () => {
+  it("keeps the demonstration catalog accessible as supporting work", () => {
     const { container } = renderSection();
-
-    // One sparkline now, not four. It is aria-hidden, so the caption beside
-    // it is the only thing that says what it shows.
-    const svgs = container.querySelectorAll('svg[aria-hidden="true"]');
-    expect(svgs.length).toBe(1);
-    expect(document.body.textContent).toContain("Modeled revenue by release month");
-
-    // The path has to be drawn from the real committed series.
-    const path = container.querySelector('path[vector-effect="non-scaling-stroke"]');
-    expect(path?.getAttribute("d")).toBeTruthy();
-    expect(ANALYTICS_SPARKS.revenue.length).toBeGreaterThan(1);
+    expect(container.querySelector('a[href="/music-analytics"]')?.textContent).toBe("Music Catalog Intelligence");
   });
 
   it("never claims real streaming data", () => {

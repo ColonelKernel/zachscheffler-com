@@ -74,7 +74,7 @@ export const CV_PROFILE = {
   // "ML Engineer" comes out of the headline for this market and stays in the
   // summary and the skills. It is a claim about tooling, and these readers want
   // the method and the domain first.
-  headline: "Public Policy Data Scientist — Transportation & Urban Development",
+  headline: "Data Scientist & Creative Systems Engineer",
   location: "San Francisco Bay Area",
   summary:
     "Seven years of applied data work for governments, multilaterals and foundations. At the World Bank I managed 14 field teams across metropolitan Lima and the rural Sierra Central and built the project database that reported on them in real time. At NORC I assembled over six million exam records from Tanzania's National Examinations Council to inform USAID's Country Development Cooperation Strategy, and ran NLP over social-media corpora for the Robert Wood Johnson Foundation. At Rios Partners I grew the data strategy work from an informal group into a standing practice and led it, establishing a new enterprise data inventory for the Centers for Medicare and Medicaid Services. My UCLA M.P.P. is in Transportation & Urban Development. The World Transit Atlas is the clearest public sample of how I work: 201 rail systems and 22,641 stations assembled from OpenStreetMap and open agency data, and a ridership audit that dismantled my own significant result rather than publishing it. I build the software as well as the analysis \u2014 pipelines, models and the interfaces over them \u2014 and I did not come up through a computer-science program.",
@@ -83,7 +83,7 @@ export const CV_PROFILE = {
    * the reader to infer the ask. Rendered on the page and drawn into the PDF.
    */
   target:
-    "Targeting data science and research roles in the public and non-profit sectors \u2014 government agencies at every level, multilateral and international development organizations, foundations and research institutes, and the consultancies that serve them. Transportation and urban development is the specialism; the methods travel. San Francisco Bay Area or remote.",
+    "Targeting data science, research, software engineering, and creative technology roles, including the public and non-profit sectors \u2014 government agencies at every level, multilateral and international development organizations, foundations and research institutes, and the consultancies that serve them. Transportation and urban development is the specialism; the methods travel. San Francisco Bay Area or remote.",
   /** Where to reach me — the contact form or email, never a phone number. */
   contactPath: "/#contact",
   email: "zachscheffler@gmail.com",

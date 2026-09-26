@@ -1,3 +1,4 @@
+import ProjectRelationships from "@/components/ProjectRelationships";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TRANSIT_ATLAS_JSONLD } from "@/app/routeStructuredData";
 
@@ -423,6 +424,8 @@ dataset I wanted then and could not assemble.
                   </p>
                 </div>
               </div>
+    <section className="space-y-4"><h2 className="type-h2">Related work: live transit and playable networks</h2><p className="leading-8 text-muted-foreground">TransitFeed explores a different time scale: a local dashboard over Bay Area vehicle positions and service information, with server-side polling. TERMINUS is a musical dispatch prototype in which trains trigger loops. Importing a real atlas network into TERMINUS is a proposed experiment; these projects do not currently share a production data pipeline.</p></section>
+    <ProjectRelationships id="transit-atlas"/>
   </CaseStudyLayout>
 );
 

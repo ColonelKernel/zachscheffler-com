@@ -38,11 +38,11 @@ const About = () => {
         <div className="max-w-2xl">
           <div className="fade-up">
             <p className="eyebrow mb-3">About</p>
-            <h2 className="type-h1 mb-8">Seven Years of Evidence for Public Decisions</h2>
+            <h2 className="type-h1 mb-8">Public Evidence, Creative Systems</h2>
 
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                Every job on this page was commissioned by someone accountable to the
+                My professional data work began with organizations accountable to the
                 public: a development bank, a federal health agency, a foundation, a
                 country strategy. I came to it through public policy rather than a
                 computer-science program — an M.P.P. at UCLA in transportation and urban
@@ -56,8 +56,8 @@ const About = () => {
                 recovers six million exam records from a portal with no bulk export, and
                 most people who can write the scraper have never watched a survey
                 instrument fail in the field. I have done both, for the same client, in the
-                same year. There is also a music career, which is where the software
-                habit came from and which is{" "}
+                same year. My music practice contributes a second set of engineering problems: timing,
+                interaction, and tools that keep the performer in control. The recordings are{" "}
                 <Link
                   to={ROUTE_META.work.path}
                   className="text-foreground underline underline-offset-4 transition-colors hover:text-primary"

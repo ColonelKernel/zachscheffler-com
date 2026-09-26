@@ -20,9 +20,9 @@ export const ROUTE_META = {
     path: "/",
     // Matches the static index.html title exactly, so the pre-hydration and
     // hydrated titles never differ.
-    title: "Zach Scheffler — Public Policy Data Scientist",
+    title: "Zach Scheffler — Data Scientist & Creative Systems Engineer",
     description:
-      "Public policy data scientist in the San Francisco Bay Area, open to remote. A UCLA M.P.P. in Transportation & Urban Development, seven years of applied data work for the World Bank, USAID through NORC and CMS through Rios Partners, and the World Transit Atlas across 201 rail systems.",
+      "Data scientist and creative systems engineer in the San Francisco Bay Area. Public-policy experience with the World Bank, USAID through NORC, and CMS through Rios Partners; open-data tools, musical instruments, and inspectable audio systems.",
   },
   toolsIndex: {
     path: "/tools",
@@ -64,7 +64,7 @@ export const ROUTE_META = {
     path: "/projects",
     title: "Projects | Zach Scheffler",
     description:
-      "Software by Zach Scheffler: the World Transit Atlas across 201 rail systems, a catalog analytics platform, the AutoHarm chord instrument, Ableton Live extensions, and in-browser music systems \u2014 all built in a test-gated workflow with a public source tree.",
+      "Selected work in data science and creative systems: civic data, cross-DAW analysis, musical instruments, and agent-assisted audio. Public source and curated private demonstrations.",
   },
   // Key order here is load-bearing: build/stampRouteHeadsPlugin.ts zips it
   // against the lazy-import order in src/App.tsx, so this entry and the PAGES
@@ -93,6 +93,12 @@ export const ROUTE_META = {
     description:
       "How the session-state analyzer works: one canonical schema across four DAWs, partial observability as a first-class evidence tag, a reached-set compatibility profile, and a role classifier benchmarked against MedleyDB.",
   },
+  audioAgents: {path: "/projects/audio-agents", title: "Agent-Assisted Audio Production | Zach Scheffler", description: "Useful agent control of audio software: inspect the system, validate a change, apply it deliberately, and keep a route back." },
+  tonnetzMetro: {path: "/projects/tonnetzmetro", title: "TonnetzMetro | Zach Scheffler", description: "A sample library and old DAW projects become a navigable metro map over harmonic space, with uncertainty in the analysis kept visible." },
+  groovePrediction: {path: "/projects/groove-prediction", title: "GroovePrediction | Zach Scheffler", description: "A shared TypeScript engine generates drum grooves for the browser and Max for Live, preserving velocity, microtiming, and repeatable performance controls." },
+  abletonTools: {path: "/projects/ableton-tools", title: "Ableton Workflow Tools | Zach Scheffler", description: "Track cleanup, arrangement planning, delivery checks, and performance preparation, collected as one family of reviewable Live extensions." },
+  jsfxForge: {path: "/projects/jsfx-forge", title: "JSFX Forge | Zach Scheffler", description: "Engineering JSFX effects into individual AU, VST3, and CLAP plugins. A technical case study; packaged effects are not offered for redistribution." },
+  portfolioEngineering: {path: "/projects/portfolio-engineering", title: "Portfolio Engineering | Zach Scheffler", description: "A lightweight React portfolio with shared audio state, route metadata, a bundle budget, and accessibility checks across all twenty routes." },
   work: {
     path: "/work",
     title: "Work | Zach Scheffler",

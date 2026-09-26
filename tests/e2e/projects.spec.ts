@@ -69,3 +69,17 @@ test("homepage teaser links to /projects", async ({ page }) => {
   await teaser.click();
   await expect(page).toHaveURL(/\/projects$/);
 });
+
+for (const slug of ["audio-agents", "tonnetzmetro", "groove-prediction"]) {
+  test(`${slug} shows a readable demonstration with loaded media`, async ({ page }) => {
+    await page.goto(`/projects/${slug}`);
+    for (const name of ["The problem", "Architecture", "Demonstration", "Evidence", "Limitations"]) {
+      await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+    }
+    await expect(page.getByText("My contribution:", { exact: true })).toBeVisible();
+    const image = page.locator("main img");
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toBeVisible();
+    await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.naturalWidth)).toBeGreaterThan(0);
+  });
+}

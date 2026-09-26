@@ -1,3 +1,4 @@
+import ProjectRelationships from "@/components/ProjectRelationships";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { SESSION_STATE_JSONLD } from "@/app/routeStructuredData";
 
@@ -229,6 +230,7 @@ const SessionStateCaseStudy = () => (
                   </p>
                 </div>
               </div>
+    <ProjectRelationships id="session-state"/>
   </CaseStudyLayout>
 );
 

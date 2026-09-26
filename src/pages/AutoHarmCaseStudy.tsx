@@ -1,3 +1,4 @@
+import ProjectRelationships from "@/components/ProjectRelationships";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { AUTOHARM_JSONLD } from "@/app/routeStructuredData";
 
@@ -155,6 +156,8 @@ const AutoHarmCaseStudy = () => (
               </div>
             </div>
 
+    <section className="space-y-4"><h2 className="type-h2">One instrument family, several interfaces</h2><p className="leading-8 text-muted-foreground">FinalMaxUPF is the combined Max implementation. AutoHarm Web makes that lineage playable in a browser. The newer Improv Partner combines credited modules from AutoHarm Web, Studio SDK, Improspira, BreathSync, and FinalMaxUPF behind a shared TypeScript core. These are related implementations with different interaction models, not interchangeable releases. Studio SDK explores editing and continuation inside Ableton; the private and collaborative components keep their own attribution.</p></section>
+    <ProjectRelationships id="autoharm"/>
   </CaseStudyLayout>
 );
 
