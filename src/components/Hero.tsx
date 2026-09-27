@@ -55,10 +55,10 @@ const Hero = () => {
                 Splitting them also keeps both lines short: the single-line
                 version ran 42 characters and wrapped to three lines at 375px. */}
             <h1 className="text-[2.6rem] font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-[4rem] [text-shadow:_0_2px_20px_rgba(0,0,0,0.6)]">
-              Public Policy Data Scientist
+              Data Scientist & Creative Systems Engineer
             </h1>
             <p className="text-lg font-medium tracking-tight text-white/80 md:text-2xl">
-              Transportation &amp; Urban Development
+              Public policy foundations. Creative technology practice.
             </p>
 
             <p className="max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
@@ -67,19 +67,20 @@ const Hero = () => {
               at NORC, and an enterprise data inventory for the Centers for Medicare and
               Medicaid Services. I built the World Transit Atlas — 201 rail systems from
               OpenStreetMap and open agency data, with a ridership audit that took apart
-              my own headline finding instead of publishing it.
+              my own headline finding instead of publishing it. I also build musical instruments,
+              evidence-aware audio systems, and tools that make complex software inspectable.
             </p>
           </div>
 
           <p className="max-w-xl text-sm leading-relaxed text-white/55">
-            UCLA M.P.P., Transportation &amp; Urban Development → World Bank → NORC at the
+            UCLA M.P.P., Public policy foundations. Creative technology practice. → World Bank → NORC at the
             University of Chicago → Rios Partners data strategy → MIT Applied Data
             Science.
           </p>
 
           <p className="max-w-xl text-sm leading-relaxed text-white/75">
-            Open to full-time and contract roles in government, multilateral and
-            non-profit research — and in the consultancies that serve them. Bay Area or
+            Open to full-time and contract work in data science, research, software, and
+            creative technology. Bay Area or
             remote —{" "}
             <Link to="/cv" className="font-medium text-white underline underline-offset-4 hover:text-white/80">
               see my CV

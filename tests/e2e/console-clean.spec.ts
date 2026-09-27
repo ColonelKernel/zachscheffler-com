@@ -23,6 +23,12 @@ const ROUTES = [
   "/projects/catalog-intelligence",
   "/projects/transit-atlas",
   "/projects/session-state",
+  "/projects/audio-agents",
+  "/projects/tonnetzmetro",
+  "/projects/groove-prediction",
+  "/projects/ableton-tools",
+  "/projects/jsfx-forge",
+  "/projects/portfolio-engineering",
   // Retired route and its older alias — both must cleanly redirect to
   // /tools/rhythm, which still mounts the same world map.
   "/groove-atlas",

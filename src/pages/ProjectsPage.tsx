@@ -1,131 +1,15 @@
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
-
 import RouteHead from "@/components/seo/RouteHead";
 import { ROUTE_META } from "@/app/routeMeta";
 import { PROJECTS_JSONLD } from "@/app/routeStructuredData";
-import { PROJECTS, PROJECT_SECTIONS, type Project } from "@/content/projects";
-import { cardClasses } from "@/components/ui/card";
-import { useFadeIn } from "@/hooks/useFadeIn";
-
-const ProjectCard = ({ project }: { project: Project }) => (
-  <article className={cardClasses({}, "flex flex-col gap-4")}>
-    <div>
-      <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">{project.tagline}</p>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      {project.stack.map((tech) => (
-        <span key={tech} className="text-xs border border-border px-2.5 py-1 rounded-full text-muted-foreground">
-          {tech}
-        </span>
-      ))}
-    </div>
-    <div className="mt-auto flex flex-wrap gap-4">
-      {project.links.map((link) =>
-        link.url.startsWith("/") ? (
-          <Link
-            key={link.url}
-            to={link.url}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            {link.label} <ArrowUpRight size={14} />
-          </Link>
-        ) : (
-          <a
-            key={link.url}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            {link.label} <ArrowUpRight size={14} />
-          </a>
-        ),
-      )}
-    </div>
-  </article>
-);
-
-const ProjectsPage = () => {
-  const ref = useFadeIn();
-
-  return (
-    <div className="min-h-screen" ref={ref}>
-      <RouteHead
-        title={ROUTE_META.projects.title}
-        description={ROUTE_META.projects.description}
-        canonicalPath={ROUTE_META.projects.path}
-        jsonLd={PROJECTS_JSONLD}
-      />
-      <main className="pt-16">
-        <section className="section-padding bg-background">
-          <div className="container mx-auto">
-            <div className="fade-up mb-12 max-w-2xl">
-              <p className="eyebrow mb-3">Projects</p>
-              <h1 className="type-h1 mb-6">Software I Build</h1>
-              <p className="text-muted-foreground leading-relaxed">
-                The first section is the one this page is written for: transit geometry and
-                ridership assembled from OpenStreetMap and open agency data, and a catalog
-                platform built on a public dataset. Everything after it is audio — Web Audio
-                scheduling engines, Web MIDI instruments that play into any DAW, extensions
-                that live inside Ableton. It is here because it is most of what I have
-                shipped, and because real-time audio is where the scheduling discipline came
-                from. All of it comes from one habit: when the workflow fights you, build the
-                thing that fights back.
-              </p>
-              {/* Employers in this space increasingly screen for AI-assisted
-                  workflow experience by name. Stating it plainly — alongside
-                  what keeps it honest — is better than leaving it implied. */}
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                This site and its tools are built in an AI-assisted, test-gated workflow:
-                content invariants are enforced by the test suite, and nothing merges
-                without passing typecheck, lint, unit and end-to-end runs, a bundle budget,
-                and an accessibility floor. The full source is public at{" "}
-                <a
-                  href="https://github.com/ColonelKernel/zachscheffler-com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
-                >
-                  github.com/ColonelKernel/zachscheffler-com
-                </a>
-                .
-              </p>
-            </div>
-
-            <div className="space-y-12">
-              {PROJECT_SECTIONS.map((section) => {
-                const items = PROJECTS.filter((project) => project.kind === section.kind);
-                if (items.length === 0) return null;
-                return (
-                  <div key={section.kind} className="fade-up">
-                    <h2 className="eyebrow mb-5">
-                      {section.title}
-                    </h2>
-                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                      {items.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="fade-up mt-14">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <ArrowLeft size={16} /> Back to home
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-  );
-};
-
-export default ProjectsPage;
+import { PROJECTS } from "@/content/projects";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectRelationships from "@/components/ProjectRelationships";
+export default function ProjectsPage() {
+  return <div className="min-h-screen"><RouteHead {...{title: ROUTE_META.projects.title, description: ROUTE_META.projects.description, canonicalPath: ROUTE_META.projects.path, jsonLd: PROJECTS_JSONLD}}/>
+    <main className="pt-16"><section className="section-padding"><div className="container mx-auto">
+      <header className="mb-12 max-w-3xl"><p className="eyebrow mb-3">Selected projects</p><h1 className="type-h1 mb-6">Software I Build</h1><p className="text-lg leading-8 text-muted-foreground">Data science, creative systems, and the engineering between them. These project families connect civic data, musical interaction, and tools that help people understand and control complex software.</p><p className="mt-4 leading-7 text-muted-foreground">Each case study identifies my contribution, what can be demonstrated, and what remains uncertain. Private projects are shown through curated examples; their source and personal data stay private.</p></header>
+      <h2 className="type-h2 mb-6">Featured project families</h2><div className="grid gap-6 md:grid-cols-2">{PROJECTS.filter(p=>p.featured).map(project=><ProjectCard key={project.id} project={project}/>)}</div>
+      <ProjectRelationships/>
+      <section className="mt-16"><h2 className="type-h2 mb-6">Supporting work</h2><div className="grid gap-5 md:grid-cols-2">{PROJECTS.filter(p=>!p.featured).map(project=><ProjectCard key={project.id} project={project}/>)}</div></section>
+    </div></section></main></div>;
+}

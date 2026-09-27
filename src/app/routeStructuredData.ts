@@ -209,6 +209,12 @@ export const ROUTE_JSONLD: Partial<Record<RouteKey, RouteStructuredData>> = {
   catalogIntelligence: CATALOG_INTELLIGENCE_JSONLD,
   transitAtlas: TRANSIT_ATLAS_JSONLD,
   sessionState: SESSION_STATE_JSONLD,
+  audioAgents: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.audioAgents.title, description: ROUTE_META.audioAgents.description, url: ROUTE_META.audioAgents.path, author: { "@type": "Person", name: "Zach Scheffler" } },
+  tonnetzMetro: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.tonnetzMetro.title, description: ROUTE_META.tonnetzMetro.description, url: ROUTE_META.tonnetzMetro.path, author: { "@type": "Person", name: "Zach Scheffler" } },
+  groovePrediction: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.groovePrediction.title, description: ROUTE_META.groovePrediction.description, url: ROUTE_META.groovePrediction.path, author: { "@type": "Person", name: "Zach Scheffler" } },
+  abletonTools: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.abletonTools.title, description: ROUTE_META.abletonTools.description, url: ROUTE_META.abletonTools.path, author: { "@type": "Person", name: "Zach Scheffler" } },
+  jsfxForge: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.jsfxForge.title, description: ROUTE_META.jsfxForge.description, url: ROUTE_META.jsfxForge.path, author: { "@type": "Person", name: "Zach Scheffler" } },
+  portfolioEngineering: { "@context": "https://schema.org", "@type": "TechArticle", name: ROUTE_META.portfolioEngineering.title, description: ROUTE_META.portfolioEngineering.description, url: ROUTE_META.portfolioEngineering.path, author: { "@type": "Person", name: "Zach Scheffler" } },
   work: WORK_JSONLD,
   cv: CV_JSONLD,
 };

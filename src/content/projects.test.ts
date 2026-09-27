@@ -55,3 +55,20 @@ describe("PROJECTS", () => {
     expect(urls.some((url) => url.includes("GrooveSurgeon"))).toBe(false);
   });
 });
+
+
+describe("curation and visibility", () => {
+  it("keeps private repositories out of public source links", () => {
+    for (const p of PROJECTS) {
+      if (p.sourceVisibility === "private") expect(p.links.every(l=>!l.url.includes("github.com"))).toBe(true);
+      expect(p.role.length).toBeGreaterThan(20);
+      expect(p.maturity.length).toBeGreaterThan(5);
+      for (const related of p.relatedProjectIds) expect(PROJECTS.some(q=>q.id===related && q.id!==p.id)).toBe(true);
+    }
+    const urls=PROJECTS.flatMap(p=>p.links.map(l=>l.url)).join(" ");
+    expect(urls).not.toMatch(/github.com\/ColonelKernel\/(?:TonnetzMetro|GroovePrediction|reaper-session-mcp|Reaeffect-YSFX_to_VST_AU)/);
+  });
+  it("does not publish paths from the private maintenance inventory", () => {
+    expect(JSON.stringify(PROJECTS)).not.toMatch(/\/Users\/|\/Volumes\/|maintenance-control|\.ai\/assistant-sync/);
+  });
+});

@@ -1,183 +1,352 @@
-/**
- * Software projects — single source of truth for the /projects page and the
- * homepage teaser.
- *
- * Curate, don't catalog: every card links to something real and public — a
- * live app, an in-site route, or a repository with actual source. Every
- * external URL here was fetched and confirmed 200 before landing. Repos that
- * are scaffolds or unreleased stay off this page entirely.
- */
-
-export type ProjectKind =
-  | "data"
-  | "web-app"
-  | "in-site"
-  | "audio-tooling"
-  | "ableton-extension"
-  | "research";
-
-export interface ProjectLink {
-  label: string;
-  /** Absolute https URL, or an in-app route starting with "/". */
-  url: string;
-}
-
+/** Curated public portfolio metadata. Never import the local repository inventory here. */
+export type ProjectKind = "data" | "web-app" | "in-site" | "audio-tooling" | "ableton-extension" | "research";
+export interface ProjectLink { label: string; url: string }
 export interface Project {
-  id: string;
-  kind: ProjectKind;
-  title: string;
-  tagline: string;
-  stack: string[];
+  id: string; kind: ProjectKind; title: string; tagline: string; stack: string[];
+  featured: boolean; maturity: string; role: string;
+  sourceVisibility: "public" | "private" | "mixed";
+  relatedProjectIds: string[]; successorId: string | null; route?: string;
   links: ProjectLink[];
 }
-
 export const PROJECTS: Project[] = [
   {
-    id: "transit-atlas",
-    kind: "data",
-    title: "World Transit Atlas",
-    tagline:
-      "An interactive atlas of 201 metro, light-rail and tram systems \u2014 1,298 lines and 22,641 stations assembled from OpenStreetMap, citylines.co and public agency open data, with monthly ridership for the 33 systems that publish it. Real geometry, not schematic; 899k OSM vertices simplified to 217k so the whole thing ships as one static file.",
-    stack: ["Python", "R", "Overpass API", "GeoJSON", "D3-style canvas"],
-    links: [
-      { label: "Case study", url: "/projects/transit-atlas" },
-      { label: "Live atlas", url: "https://colonelkernel.github.io/world-transit-atlas/" },
-      { label: "Source", url: "https://github.com/ColonelKernel/world-transit-atlas" },
+    "id": "transit-atlas",
+    "kind": "data",
+    "title": "World Transit Atlas",
+    "tagline": "201 rail systems assembled from open data, with real geographic alignments and an audit of what the ridership figures can actually support.",
+    "stack": [
+      "Python",
+      "R",
+      "GeoJSON"
     ],
-  },
-  {
-    id: "this-site",
-    kind: "web-app",
-    title: "This Site",
-    tagline:
-      "zachscheffler.com itself — a React SPA whose four music tools share one Web Audio transport and clock. Every push and pull request has to pass typecheck, zero-warning lint, the unit suites, a production build, a Playwright end-to-end run, a 150KB gzip budget on the initial graph, and Lighthouse CI holding accessibility at 1.0 across all fourteen routes.",
-    stack: ["TypeScript", "React", "Web Audio", "Vitest + Playwright", "GitHub Actions"],
-    links: [
-      { label: "Source", url: "https://github.com/ColonelKernel/zachscheffler-com" },
-      { label: "Tools", url: "/tools" },
+    "route": "transitAtlas",
+    "featured": true,
+    "maturity": "Working web application",
+    "role": "Data collection, geographic pipeline, visualization, and methodological audit.",
+    "sourceVisibility": "public",
+    "relatedProjectIds": [
+      "tonnetzmetro",
+      "music-analytics"
     ],
-  },
-  {
-    id: "autoharm",
-    kind: "web-app",
-    title: "AutoHarm",
-    // Precise on purpose. "Machine learning" implied training that this repo
-    // doesn't contain (it ships ONNX inference over checkpoints exported from
-    // the original Max patch), and "any DAW" hid the real constraint: MIDI out
-    // needs a virtual port and a Web MIDI browser — Safari can't route it.
-    tagline:
-      "Generative chord instrument — a four-corpus Markov blend (Nottingham, POP909, Bach, OpenBook) alongside JazzNet RNN and LSTM models running on-device in ONNX. Plays live MIDI into any DAW over a virtual port in Chrome, Edge, or Firefox, and exports every take as a .mid file. A web port of my Autoharmonizer Max patch.",
-    stack: ["TypeScript", "Web MIDI", "ONNX inference"],
-    links: [
-      { label: "Case study", url: "/projects/autoharm" },
-      { label: "Launch app", url: "https://autoharm.zachscheffler.com/" },
-      { label: "Source", url: "https://github.com/ColonelKernel/AutoHarm-Web" },
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/transit-atlas"
+      },
+      {
+        "label": "Live atlas",
+        "url": "https://colonelkernel.github.io/world-transit-atlas/"
+      },
+      {
+        "label": "Source",
+        "url": "https://github.com/ColonelKernel/world-transit-atlas"
+      }
     ],
+    "successorId": null
   },
   {
-    id: "music-analytics",
-    kind: "in-site",
-    title: "Music Catalog Intelligence",
-    tagline:
-      "Catalog analytics dashboard for music investment analysis — forecasting, risk scoring, and side-by-side comparison over a demonstration dataset of public Spotify popularity data.",
-    stack: ["React", "Recharts", "Supabase"],
-    links: [
-      { label: "Open dashboard", url: "/music-analytics" },
-      { label: "Case study", url: "/projects/catalog-intelligence" },
+    "id": "session-state",
+    "kind": "research",
+    "title": "Session State Analyzer",
+    "tagline": "One evidence-aware representation of session state across Ableton, REAPER, Logic, and Cubase. Missing information remains visible.",
+    "stack": [
+      "Python",
+      "Pydantic",
+      "Streamlit"
     ],
-  },
-  {
-    id: "music-tools",
-    kind: "in-site",
-    title: "Interactive Music Tools",
-    tagline:
-      "Rhythm engine, harmony lab, rhythm map, circle of fifths, and Tonnetz — five workspaces sharing one key, tempo, and transport, driven by a lookahead Web Audio scheduler that gives each track its own subdivision of the bar for real cross-rhythms.",
-    stack: ["React", "Web Audio", "Music theory"],
-    links: [{ label: "Open tools", url: "/tools" }],
-  },
-  {
-    id: "vcv-rack-mcp",
-    kind: "audio-tooling",
-    title: "VCV Rack MCP",
-    tagline:
-      "A Model Context Protocol server that lets an agent build modular patches in VCV Rack. The rack side is a C++ plugin that applies every edit as a transaction it can roll back; the TypeScript server validates the whole plan before anything touches the running rack.",
-    stack: ["C++", "TypeScript", "CMake", "MCP"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/vcv-rack-mcp" }],
-  },
-  {
-    id: "drum-cartographer",
-    kind: "ableton-extension",
-    title: "Drum Rack Cartographer",
-    tagline: "Analyzes, labels, previews, and remaps drum MIDI into a readable Drum Rack map.",
-    stack: ["TypeScript", "Ableton Extensions SDK"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/AbletonDrumCartographer" }],
-  },
-  {
-    id: "track-doctor",
-    kind: "ableton-extension",
-    title: "Track Doctor",
-    tagline: "Cleans up messy Live sets with smart, reviewable track renames.",
-    stack: ["TypeScript", "Ableton Extensions SDK"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/AbletonTrackDoctor" }],
-  },
-  {
-    id: "arrangement-architect",
-    kind: "ableton-extension",
-    title: "Arrangement Architect",
-    tagline:
-      "Scans a Live Set, maps scenes and track roles, scores arrangement health, and generates a section-by-section plan.",
-    stack: ["TypeScript", "Ableton Extensions SDK"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/ArrangementArchitect" }],
-  },
-  {
-    id: "live-console",
-    kind: "ableton-extension",
-    title: "Live Console",
-    tagline:
-      "Command-palette workflow utility for Ableton Live, inspired by REAPER's ReaConsole — type short commands instead of clicking through the set.",
-    stack: ["TypeScript", "Ableton Extensions SDK"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/AbletonLiveConsole" }],
-  },
-  {
-    id: "autoharmonizer",
-    kind: "ableton-extension",
-    title: "Autoharmonizer",
-    tagline:
-      "The Max for Live original that AutoHarm was ported from — a generative chord instrument built as a Max/MSP patch driving a Python side over OSC protocol v3, with an in-process ONNX and pure-JS bridge running the models.",
-    stack: ["Max/MSP", "Python", "OSC", "ONNX"],
-    links: [{ label: "Source", url: "https://github.com/ColonelKernel/Autoharmonizer" }],
-  },
-  {
-    id: "research",
-    kind: "research",
-    title: "Music-Tech Research",
-    tagline:
-      "The research dossier behind the tools: session-state analysis across DAWs, the Autoharmonizer instrument, and a proposed research trajectory.",
-    stack: ["Python", "Max/MSP", "MIR"],
-    links: [{ label: "research.zachscheffler.com", url: "https://research.zachscheffler.com/" }],
-  },
-  {
-    id: "session-state",
-    kind: "research",
-    title: "Session-State Analyzer",
-    tagline:
-      "The analytical layer over four DAW session-state explorers — REAPER, Logic, Cubase, and Ableton Live — each gathering its evidence a different way behind one canonical contract, so a session can be compared across DAWs with measured observability and an explainable alignment.",
-    stack: ["Python", "DAW project formats", "MIR"],
-    links: [
-      { label: "Case study", url: "/projects/session-state" },
-      { label: "Source", url: "https://github.com/ColonelKernel/session-state-analyzer" },
+    "route": "sessionState",
+    "featured": true,
+    "maturity": "Research prototype",
+    "role": "Canonical data model, DAW adapters, analytical workbench, and evaluation.",
+    "sourceVisibility": "public",
+    "relatedProjectIds": [
+      "audio-agents",
+      "tonnetzmetro"
     ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/session-state"
+      },
+      {
+        "label": "Source",
+        "url": "https://github.com/ColonelKernel/session-state-analyzer"
+      }
+    ],
+    "successorId": null
   },
+  {
+    "id": "autoharm",
+    "kind": "web-app",
+    "title": "AutoHarm & Interactive Improvisation",
+    "tagline": "A playable browser harmony instrument and its Max lineage: deterministic musical engines, on-device inference, and phrase-based interaction.",
+    "stack": [
+      "TypeScript",
+      "Web MIDI",
+      "ONNX",
+      "Max/MSP"
+    ],
+    "route": "autoharm",
+    "featured": true,
+    "maturity": "Web instrument · related prototypes",
+    "role": "Instrument design, browser port, model inference, and cross-surface integration; donor models and datasets credited.",
+    "sourceVisibility": "mixed",
+    "relatedProjectIds": [
+      "groove-prediction",
+      "ableton-tools"
+    ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/autoharm"
+      },
+      {
+        "label": "Launch app",
+        "url": "https://autoharm.zachscheffler.com/"
+      },
+      {
+        "label": "Web source",
+        "url": "https://github.com/ColonelKernel/AutoHarm-Web"
+      },
+      {
+        "label": "Max source",
+        "url": "https://github.com/ColonelKernel/Autoharmonizer"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "audio-agents",
+    "kind": "audio-tooling",
+    "title": "Agent-Assisted Audio Production",
+    "tagline": "Useful agent control of audio software: inspect the system, validate a change, apply it deliberately, and keep a route back.",
+    "stack": [
+      "Python",
+      "TypeScript",
+      "C++",
+      "MCP"
+    ],
+    "route": "audioAgents",
+    "featured": true,
+    "maturity": "Local integrations",
+    "role": "Host bridges, capability-aware tools, validation, and reversible editing workflows.",
+    "sourceVisibility": "mixed",
+    "relatedProjectIds": [
+      "session-state",
+      "jsfx-forge",
+      "ableton-tools"
+    ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/audio-agents"
+      },
+      {
+        "label": "VCV Rack source",
+        "url": "https://github.com/ColonelKernel/vcv-rack-mcp"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "tonnetzmetro",
+    "kind": "audio-tooling",
+    "title": "TonnetzMetro",
+    "tagline": "A sample library and old DAW projects become a navigable metro map over harmonic space, with uncertainty in the analysis kept visible.",
+    "stack": [
+      "Python",
+      "Audio analysis",
+      "Tonnetz"
+    ],
+    "route": "tonnetzMetro",
+    "featured": true,
+    "maturity": "Prototype · synthetic demonstration",
+    "role": "Audio-analysis pipeline, project ingestion, harmonic mapping, and interactive exploration.",
+    "sourceVisibility": "private",
+    "relatedProjectIds": [
+      "transit-atlas",
+      "session-state"
+    ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/tonnetzmetro"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "groove-prediction",
+    "kind": "audio-tooling",
+    "title": "GroovePrediction",
+    "tagline": "A shared TypeScript engine generates drum grooves for the browser and Max for Live, preserving velocity, microtiming, and repeatable performance controls.",
+    "stack": [
+      "TypeScript",
+      "Statistical models",
+      "Web MIDI",
+      "Max for Live"
+    ],
+    "route": "groovePrediction",
+    "featured": true,
+    "maturity": "Prototype · browser demonstration",
+    "role": "Statistical modeling, deterministic engine, and web/Max performance interfaces, using the credited E-GMD corpus.",
+    "sourceVisibility": "private",
+    "relatedProjectIds": [
+      "autoharm",
+      "ableton-tools"
+    ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/groove-prediction"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "ableton-tools",
+    "kind": "ableton-extension",
+    "title": "Ableton Workflow Tools",
+    "tagline": "Track cleanup, arrangement planning, delivery checks, and performance preparation, collected as one family of reviewable Live extensions.",
+    "stack": [
+      "TypeScript",
+      "Ableton Extensions SDK"
+    ],
+    "route": "abletonTools",
+    "featured": false,
+    "maturity": "Extensions SDK beta prototypes",
+    "role": "Workflow design, deterministic analysis, preview interfaces, and host integration.",
+    "sourceVisibility": "mixed",
+    "relatedProjectIds": [
+      "audio-agents",
+      "groove-prediction"
+    ],
+    "links": [
+      {
+        "label": "Case study",
+        "url": "/projects/ableton-tools"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "music-analytics",
+    "kind": "in-site",
+    "title": "Music Catalog Intelligence",
+    "tagline": "Forecasting and risk exploration over a demonstration dataset derived from public Spotify popularity data, with the model limitations documented.",
+    "stack": [
+      "React",
+      "Recharts",
+      "Supabase"
+    ],
+    "route": "catalogIntelligence",
+    "featured": false,
+    "maturity": "Demonstration dashboard",
+    "role": "Data transformation, forecasting, analytical interface, and methods documentation.",
+    "sourceVisibility": "public",
+    "relatedProjectIds": [
+      "transit-atlas"
+    ],
+    "links": [
+      {
+        "label": "Open dashboard",
+        "url": "/music-analytics"
+      },
+      {
+        "label": "Case study",
+        "url": "/projects/catalog-intelligence"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "jsfx-forge",
+    "kind": "audio-tooling",
+    "title": "JSFX Forge",
+    "tagline": "Engineering JSFX effects into individual AU, VST3, and CLAP plugins. A technical case study; packaged effects are not offered for redistribution.",
+    "stack": [
+      "C++",
+      "JUCE",
+      "ysfx",
+      "Audio plugins"
+    ],
+    "route": "jsfxForge",
+    "featured": false,
+    "maturity": "Private builds · distribution restricted",
+    "role": "Plugin packaging and host lifecycle integration, built on credited third-party runtimes and effect scripts.",
+    "sourceVisibility": "private",
+    "relatedProjectIds": [
+      "audio-agents"
+    ],
+    "links": [
+      {
+        "label": "Engineering case study",
+        "url": "/projects/jsfx-forge"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "music-tools",
+    "kind": "in-site",
+    "title": "Interactive Music Tools",
+    "tagline": "Rhythm, harmony, circle of fifths, and Tonnetz workspaces sharing one key, tempo, and Web Audio transport.",
+    "stack": [
+      "React",
+      "Web Audio",
+      "Music theory"
+    ],
+    "featured": false,
+    "maturity": "Working browser tools",
+    "role": "Shared musical state, audio scheduling, interfaces, and cited rhythm material.",
+    "sourceVisibility": "public",
+    "relatedProjectIds": [
+      "autoharm",
+      "groove-prediction"
+    ],
+    "links": [
+      {
+        "label": "Open tools",
+        "url": "/tools"
+      }
+    ],
+    "successorId": null
+  },
+  {
+    "id": "this-site",
+    "kind": "web-app",
+    "title": "Portfolio Engineering",
+    "tagline": "A lightweight React portfolio with shared audio state, route metadata, a bundle budget, and accessibility checks across all twenty routes.",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vitest",
+      "Playwright"
+    ],
+    "route": "portfolioEngineering",
+    "featured": false,
+    "maturity": "Deployed website",
+    "role": "Application architecture, content modeling, verification, and deployment.",
+    "sourceVisibility": "public",
+    "relatedProjectIds": [
+      "music-tools"
+    ],
+    "links": [
+      {
+        "label": "Engineering note",
+        "url": "/projects/portfolio-engineering"
+      },
+      {
+        "label": "Source",
+        "url": "https://github.com/ColonelKernel/zachscheffler-com/tree/portfolio/rebuild"
+      }
+    ],
+    "successorId": null
+  }
 ];
-
+export const FEATURED_PROJECTS = PROJECTS.filter((project) => project.featured);
 export const PROJECT_SECTIONS: Array<{ kind: ProjectKind; title: string }> = [
-  // Data leads the page for the same reason the homepage leads with it: this
-  // is the section a data-science reader is looking for, and it used to not
-  // exist at all.
-  { kind: "data", title: "Data & Geospatial" },
-  { kind: "web-app", title: "Live Web Apps" },
-  { kind: "in-site", title: "On This Site" },
-  { kind: "audio-tooling", title: "Audio Tooling" },
-  { kind: "ableton-extension", title: "Ableton Live Extensions" },
-  { kind: "research", title: "Research" },
+  {kind: "data", title: "Data & Geospatial"}, {kind: "research", title: "Research"},
+  {kind: "web-app", title: "Web Applications"}, {kind: "audio-tooling", title: "Audio Systems"},
+  {kind: "ableton-extension", title: "Ableton Tools"}, {kind: "in-site", title: "Interactive Tools"},
 ];

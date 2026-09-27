@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { m } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
@@ -13,6 +13,7 @@ interface Props {
 }
 
 export default function VolatilityPanel({ data, artists, selectedArtist }: Props) {
+  const reduceMotion = useReducedMotion();
   const artistData = useMemo(() => {
     const topSet = new Set(artists);
     if (selectedArtist === "all") {
@@ -43,7 +44,7 @@ export default function VolatilityPanel({ data, artists, selectedArtist }: Props
 
   return (
     <m.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6"
     >

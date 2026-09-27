@@ -92,7 +92,7 @@ const Services = () => {
       <div className="container mx-auto">
         <div className="fade-up mb-16">
           <p className="eyebrow mb-3">Evidence</p>
-          <h2 className="type-h1">Public Sector Data, and the Systems Built On It</h2>
+          <h2 className="type-h1">Public Experience, Technical Practice</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

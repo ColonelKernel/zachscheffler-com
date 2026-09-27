@@ -253,7 +253,7 @@ const Navbar = () => {
    * On any /tools* or /music-analytics route this bar replaced the whole site
    * nav with the subnav, so CV, Projects and Work all vanished —
    * and the five tool pages contain no internal link of their own. Six of
-   * fourteen routes could not reach the CV except through the wordmark, on a
+   * twenty routes could not reach the CV except through the wordmark, on a
    * site whose own comment calls the CV the conversion target. The subnav
    * stays; it just no longer traps anyone.
    */

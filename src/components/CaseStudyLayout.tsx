@@ -8,6 +8,7 @@ import RouteHead, { type RouteStructuredData } from "@/components/seo/RouteHead"
 import { ROUTE_META } from "@/app/routeMeta";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
+import { PROJECTS } from "@/content/projects";
 import { useFadeIn } from "@/hooks/useFadeIn";
 
 /**
@@ -71,6 +72,7 @@ const CaseStudyLayout = ({
 }: CaseStudyLayoutProps) => {
   const ref = useFadeIn();
   const meta = ROUTE_META[slug];
+  const project = PROJECTS.find((item) => item.route === slug);
 
   return (
     <div className="min-h-screen" ref={ref}>
@@ -92,10 +94,12 @@ const CaseStudyLayout = ({
                 <ArrowLeft size={14} /> All projects
               </Link>
 
-              <p className="eyebrow mb-3">Case study</p>
+              <p className="eyebrow mb-3">{project?.maturity ?? "Case study"}</p>
               <h1 className="type-h1 mb-5">{title}</h1>
 
               <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{lede}</p>
+
+              {project && <p className="mt-5 max-w-2xl leading-7"><strong>My contribution: </strong>{project.role}</p>}
 
               <div className="mt-8 flex flex-wrap gap-4">
                 {actions.map((action, index) => {

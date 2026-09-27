@@ -39,19 +39,7 @@ const Index = () => {
           <Services />
         </Suspense>
 
-        {/* The music no longer renders here.
-            
-            Ordering it below the data evidence was the right answer while the
-            page was aimed at tech hiring — a reader who met the EP player
-            first had already filed this as a musician's site. Aimed at
-            government, multilateral and non-profit research it is not an
-            ordering problem: the most recent credential on the CV is a
-            Berklee M.M., and a homepage that plays records invites "why are
-            you applying here?" before the World Bank line is read.
-
-            It is not deleted. /work carries every embed and the full EP
-            credits, the navbar links it, and About points at it. It stopped
-            being part of the argument this page makes. */}
+        {/* The selected systems connect the professional and creative work. */}
         <div className="border-y border-border/60 bg-secondary/50">
           <SystemsPreview />
         </div>

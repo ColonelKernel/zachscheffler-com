@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { m } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
@@ -13,6 +13,7 @@ interface Props {
 }
 
 export default function CatalogSegmentation({ data, artists, mode }: Props) {
+  const reduceMotion = useReducedMotion();
   const segmented = useMemo(() => {
     const raw = buildSegmentedData(data, artists);
     if (mode === "revenue") {
@@ -36,7 +37,7 @@ export default function CatalogSegmentation({ data, artists, mode }: Props) {
 
   return (
     <m.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6"
     >
