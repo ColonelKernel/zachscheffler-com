@@ -1,0 +1,13 @@
+{
+  "host": "REAPER 7.80/macOS arm64",
+  "tool": "reaper_export_canonical_snapshot",
+  "schema": "0.2.0",
+  "read_only_undo_history_unchanged": true,
+  "changed_entities": [
+    "reaper:project:32b596941e5f4d74f7c0dbd7",
+    "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}"
+  ],
+  "undo_restored_all_tracks_routing_fx_and_properties": true,
+  "exception": "REAPER retains project dirty=true after undo. Snapshot timestamps, capture counter and snapshot IDs also differ by design.",
+  "fixture_checks": "Automated fixtures are separate from this live-host validation."
+}

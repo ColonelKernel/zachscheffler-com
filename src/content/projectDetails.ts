@@ -3,7 +3,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
   "audio-agents": {
     "problem": "Audio applications expose large, uneven control surfaces. A useful assistant needs to know what the host actually exposes and explain what an edit will do.",
     "architecture": "VCV Rack uses a C++ host bridge and a TypeScript MCP server with structured patch operations. REAPER uses a Python MCP server and a Lua bridge. Cardinal works with patch files and standalone OSC; GuitarRig uses MIDI Learn without parameter readback.",
-    "demonstration": "The VCV Rack source includes a captured patch-building walkthrough. REAPER requires a local host and bridge; its source remains private. The Session State bridge is proposed work until its live checks are recorded.",
+    "demonstration": "The VCV Rack source includes a captured patch-building walkthrough. REAPER requires a local host and bridge; its source remains private. The optional read-only Session State exporter was verified in a synthetic REAPER session: export, Analyzer visualization, reviewed gain edit, comparison and undo. Explore the captured snapshots below.",
     "evidence": "VCV Rack validates proposed patch changes and applies transactions with recovery. REAPER tools separate inspection from mutation and support batches grouped into one undo point.",
     "limitations": "These integrations require installed host applications. MIDI commands sent to GuitarRig cannot establish its current state. A valid patch is not evidence that it sounds good.",
     "image": "/projects/media/rack-demo.png",

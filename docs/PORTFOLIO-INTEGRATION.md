@@ -16,3 +16,5 @@ Keep these distinctions in public copy. A screenshot is evidence of its depicted
 ## Deployment
 
 Use the existing Netlify project `sensational-dolphin-5030aa`. Production follows `portfolio/rebuild`. The previous production revision before this change is `29aca35430440c1e94d28ae02503f2c960d52f6d`; preserve its Netlify deployment for rollback. Review the pull-request preview before merging. Do not deploy `main` to this domain or change the separate research project.
+
+The Session State/REAPER bridge subsequently passed native validation on REAPER 7.80/macOS arm64. The audio-agents case study now loads three synthetic exports only after a click and provides a 24-second captured-step video with captions. These are curated examples, not a browser connection to a visitor's DAW. Public JSON removes native plugin identifiers; project paths and personal media are absent. The Analyzer's own comparison is downloadable. Undo restores track/routing/FX state but leaves REAPER's dirty flag set.
