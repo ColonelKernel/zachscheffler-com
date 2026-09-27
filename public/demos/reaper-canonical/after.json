@@ -1,0 +1,473 @@
+{
+  "schema_version": "0.2.0",
+  "snapshot_id": "58352b3d-8a9e-4ad7-ba3d-f6d90c5a4656",
+  "created_at": "2026-09-27T00:19:47.891698+00:00",
+  "source": {
+    "daw": "reaper",
+    "daw_version": "7.80/macOS-arm64",
+    "adapter": "reaper-session-mcp",
+    "adapter_version": "0.2.0",
+    "capture_modes": [
+      "live_read_only"
+    ]
+  },
+  "project": "reaper:project:32b596941e5f4d74f7c0dbd7",
+  "entities": [
+    {
+      "id": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "entity_type": "PROJECT",
+      "name": "Synthetic Session.RPP",
+      "properties": {
+        "dirty": true,
+        "length": 0,
+        "sample_rate": 44100,
+        "sample_rate_override": true,
+        "identity_scope": "saved_path_hash"
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "project"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "path": "REDACTED",
+        "automation": "UNSUPPORTED",
+        "modulation": "UNSUPPORTED",
+        "media_assets": "UNSUPPORTED",
+        "temporal_objects": "UNSUPPORTED"
+      }
+    },
+    {
+      "id": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}",
+      "entity_type": "CHANNEL",
+      "name": "MASTER",
+      "properties": {
+        "volume": 1,
+        "pan": 0,
+        "width": 1,
+        "mute": false,
+        "solo": 0,
+        "channels": 2,
+        "main_send": true
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "master channel"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "automation": "UNSUPPORTED",
+        "modulation": "UNSUPPORTED"
+      },
+      "semantic_roles": [
+        "master"
+      ]
+    },
+    {
+      "id": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}:endpoint:hardware_output:0",
+      "entity_type": "ROUTING_ENDPOINT",
+      "name": "Aux 1",
+      "properties": {
+        "kind": "hardware_output"
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "hardware output"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "channel_mapping": "UNSUPPORTED",
+        "target_track": "INACCESSIBLE"
+      }
+    },
+    {
+      "id": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "entity_type": "CHANNEL",
+      "name": "Synthetic Bus",
+      "properties": {
+        "volume": 1,
+        "pan": 0,
+        "width": 1,
+        "mute": false,
+        "solo": 0,
+        "channels": 2,
+        "main_send": true
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "track mixer"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "automation": "UNSUPPORTED",
+        "modulation": "UNSUPPORTED"
+      },
+      "semantic_roles": [
+        "mixer_channel"
+      ]
+    },
+    {
+      "id": "reaper:track:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "entity_type": "TRACK",
+      "name": "Synthetic Bus",
+      "properties": {
+        "index": 1,
+        "folder_depth": 1,
+        "depth": 0,
+        "record_arm": false,
+        "item_count": 0,
+        "native_guid": "{442AD6A1-F662-B647-98CF-222FA9C18ACF}"
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "folder track"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "temporal_objects": "UNSUPPORTED"
+      },
+      "semantic_roles": [
+        "folder_parent"
+      ]
+    },
+    {
+      "id": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "entity_type": "CHANNEL",
+      "name": "Pulse",
+      "properties": {
+        "volume": 0.50118723362727,
+        "pan": 0,
+        "width": 1,
+        "mute": false,
+        "solo": 0,
+        "channels": 2,
+        "main_send": true
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "track mixer"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "automation": "UNSUPPORTED",
+        "modulation": "UNSUPPORTED"
+      },
+      "semantic_roles": [
+        "mixer_channel"
+      ]
+    },
+    {
+      "id": "reaper:track:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "entity_type": "TRACK",
+      "name": "Pulse",
+      "properties": {
+        "index": 2,
+        "folder_depth": 0,
+        "depth": 1,
+        "record_arm": false,
+        "item_count": 0,
+        "native_guid": "{B9553894-1A7B-4B42-9A16-C2E092FACA11}"
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "track"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "temporal_objects": "UNSUPPORTED"
+      },
+      "semantic_roles": []
+    },
+    {
+      "id": "reaper:processor:{389A7BF4-F42F-D44C-A6D6-72CB2D1802E1}",
+      "entity_type": "PROCESSOR",
+      "name": "VST: ReaEQ (Cockos)",
+      "properties": {
+        "enabled": true,
+        "offline": false,
+        "fx_type": "VST",
+        "is_instrument": false,
+        "parallel": "0",
+        "param_count": 19,
+        "native_guid": "{389A7BF4-F42F-D44C-A6D6-72CB2D1802E1}",
+        "chain": "normal",
+        "index": 0
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "FX"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "parameters": "UNSUPPORTED",
+        "plugin_state": "INACCESSIBLE",
+        "fx_ident": "REDACTED"
+      }
+    },
+    {
+      "id": "reaper:channel:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "entity_type": "CHANNEL",
+      "name": "Pulse",
+      "properties": {
+        "volume": 1,
+        "pan": 0,
+        "width": 1,
+        "mute": false,
+        "solo": 0,
+        "channels": 2,
+        "main_send": true
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "track mixer"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "automation": "UNSUPPORTED",
+        "modulation": "UNSUPPORTED"
+      },
+      "semantic_roles": [
+        "mixer_channel"
+      ]
+    },
+    {
+      "id": "reaper:track:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "entity_type": "TRACK",
+      "name": "Pulse",
+      "properties": {
+        "index": 3,
+        "folder_depth": -1,
+        "depth": 1,
+        "record_arm": false,
+        "item_count": 0,
+        "native_guid": "{69C1503D-84B1-1C4C-B6AE-04674227AE0A}"
+      },
+      "native": {
+        "daw": "reaper",
+        "native_type": "track"
+      },
+      "prov": {
+        "*": "reaper:reascript"
+      },
+      "availability": {
+        "temporal_objects": "UNSUPPORTED"
+      },
+      "semantic_roles": []
+    }
+  ],
+  "relationships": [
+    {
+      "id": "reaper:edge:8907fe67179d947ae3a18375",
+      "rel_type": "CONTAINS",
+      "source": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "target": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:313334a1a2acf19f751a53ef",
+      "rel_type": "CHANNEL_SENDS_TO",
+      "source": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}",
+      "target": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}:endpoint:hardware_output:0",
+      "properties": {
+        "index": 0,
+        "volume": 1,
+        "pan": 0,
+        "mute": false,
+        "mode": 0,
+        "native_source_channels": 0,
+        "native_dest_channels": 0,
+        "channel_mapping_availability": "UNSUPPORTED"
+      },
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:65273871a3a15f8277152652",
+      "rel_type": "CONTAINS",
+      "source": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "target": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:5a059e7953e05c78c8601ad8",
+      "rel_type": "CONTAINS",
+      "source": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "target": "reaper:track:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:455d1c5948a261147606ef41",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "reaper:track:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "target": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:83f9beac13a33efc88c0f0cb",
+      "rel_type": "CHANNEL_ROUTES_TO",
+      "source": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "target": "reaper:channel:{E80AF536-5DC1-5440-A8B5-D11DB3773AAD}",
+      "properties": {
+        "route_kind": "parent_or_master",
+        "channel_mapping_availability": "UNSUPPORTED"
+      },
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:c606811cc015890e802d6aec",
+      "rel_type": "CONTAINS",
+      "source": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "target": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:736a52d1175dd3b2bac6f5ed",
+      "rel_type": "CONTAINS",
+      "source": "reaper:track:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "target": "reaper:track:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:f931efea76015304d25b3d20",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "reaper:track:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "target": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:e571fc9d49131d00ed336313",
+      "rel_type": "CHANNEL_ROUTES_TO",
+      "source": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "target": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "properties": {
+        "route_kind": "parent_or_master",
+        "channel_mapping_availability": "UNSUPPORTED"
+      },
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:a18867f6716e39235502fc4a",
+      "rel_type": "CHANNEL_PROCESSED_BY",
+      "source": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+      "target": "reaper:processor:{389A7BF4-F42F-D44C-A6D6-72CB2D1802E1}",
+      "properties": {
+        "index": 0,
+        "chain": "normal"
+      },
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:7a770b1f7f45e66b7550f606",
+      "rel_type": "CONTAINS",
+      "source": "reaper:project:32b596941e5f4d74f7c0dbd7",
+      "target": "reaper:channel:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:0819b78be52f9b3e7802fc7a",
+      "rel_type": "CONTAINS",
+      "source": "reaper:track:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "target": "reaper:track:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:bdd911773f1e36bd7d88a797",
+      "rel_type": "TRACK_USES_CHANNEL",
+      "source": "reaper:track:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "target": "reaper:channel:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "properties": {},
+      "prov_ref": "reaper:reascript"
+    },
+    {
+      "id": "reaper:edge:b9ff5b76749cc45994c11dd4",
+      "rel_type": "CHANNEL_ROUTES_TO",
+      "source": "reaper:channel:{69C1503D-84B1-1C4C-B6AE-04674227AE0A}",
+      "target": "reaper:channel:{442AD6A1-F662-B647-98CF-222FA9C18ACF}",
+      "properties": {
+        "route_kind": "parent_or_master",
+        "channel_mapping_availability": "UNSUPPORTED"
+      },
+      "prov_ref": "reaper:reascript"
+    }
+  ],
+  "temporal_state": {
+    "tempo_at_cursor": {
+      "bpm": 120,
+      "time_signature": "4/4"
+    },
+    "transport": {
+      "play_state": 0,
+      "play_position": 0,
+      "any_solo": false,
+      "time_selection": {
+        "end_time": 0,
+        "start_time": 0,
+        "length": 0,
+        "empty": true
+      },
+      "loop": {
+        "end_time": 0,
+        "start_time": 0,
+        "length": 0,
+        "empty": true
+      },
+      "repeat_enabled": false,
+      "edit_cursor": 0,
+      "edit_cursor_time": {
+        "beat_in_measure": 1.00000000001,
+        "measure": 1,
+        "bars_beats": "1.1.000",
+        "time_signature": "4/4",
+        "seconds": 0
+      },
+      "play_rate": 1
+    }
+  },
+  "provenance": [
+    {
+      "id": "reaper:reascript",
+      "evidence": "OBSERVED",
+      "capture_method": "ReaScript_API",
+      "source_stability": "OFFICIAL_DOCUMENTED",
+      "source_ref": "https://www.reaper.fm/sdk/reascript/reascripthelp.html"
+    }
+  ],
+  "extensions": {
+    "reaper_session_mcp": {
+      "state_count": 8,
+      "collection": "single_non_yielding_callback"
+    }
+  },
+  "warnings": [
+    "Media, automation, modulation and FX parameter state are not collected.",
+    "Routing channel bitfields are retained as native codes, not decoded channel maps.",
+    "Public demonstration: native plugin identifiers redacted; no personal media or project paths included."
+  ],
+  "failures": []
+}

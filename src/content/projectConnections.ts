@@ -2,8 +2,8 @@ export const PROJECT_CONNECTIONS = [
   {
     "from": "session-state",
     "to": "audio-agents",
-    "status": "Proposed integration",
-    "text": "Export live REAPER state into the existing canonical snapshot contract, then inspect a reviewed before/after change."
+    "status": "Verified synthetic integration",
+    "text": "A read-only REAPER export loads in the Analyzer. A GUID-addressed gain edit, comparison and undo were exercised in a synthetic native session."
   },
   {
     "from": "autoharm",

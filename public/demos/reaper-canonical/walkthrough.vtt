@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00.000 --> 00:06.000
+Inspect: a synthetic folder with two Pulse tracks and one ReaEQ instance. Native GUIDs distinguish duplicate names.
+
+00:06.000 --> 00:12.000
+Export and visualize: the existing Analyzer loads 10 entities and 15 relationships from the read-only MCP snapshot.
+
+00:12.000 --> 00:18.000
+Review and apply: lower only track 2 by 6 dB through the existing mutation tool. Export again to compare.
+
+00:18.000 --> 00:24.000
+Undo restores the fader and all track, routing and FX data. REAPER retains its modified flag. Captured steps; timing condensed.

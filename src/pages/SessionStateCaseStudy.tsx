@@ -230,7 +230,8 @@ const SessionStateCaseStudy = () => (
                   </p>
                 </div>
               </div>
-    <ProjectRelationships id="session-state"/>
+    <section className="my-8 max-w-3xl"><h2 className="type-h2 mb-4">Live inspection and controlled change</h2><p className="leading-8 text-muted-foreground">The REAPER MCP integration now exports a read-only canonical snapshot and supports a verified synthetic edit–compare–undo walkthrough. ChainWalker and Fit Knob remain proposed research connections: controlled effect changes could connect session structure to measurable audio outcomes, with listening evaluation still required.</p><a href="/projects/audio-agents#reaper-demo-title" className="mt-4 inline-block underline underline-offset-4">Explore the captured REAPER walkthrough</a></section>
+<ProjectRelationships id="session-state"/>
   </CaseStudyLayout>
 );
 

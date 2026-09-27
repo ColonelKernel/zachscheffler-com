@@ -1,0 +1,37 @@
+{
+  "after": {
+    "added_entities": [],
+    "removed_entities": [],
+    "added_relationships": [],
+    "removed_relationships": [],
+    "changed": [
+      {
+        "id": "reaper:project:32b596941e5f4d74f7c0dbd7",
+        "type": "PROJECT",
+        "label": "Synthetic Session.RPP"
+      },
+      {
+        "id": "reaper:channel:{B9553894-1A7B-4B42-9A16-C2E092FACA11}",
+        "type": "CHANNEL",
+        "label": "Pulse"
+      }
+    ],
+    "added_sends": [],
+    "parameter_changes": []
+  },
+  "restored": {
+    "added_entities": [],
+    "removed_entities": [],
+    "added_relationships": [],
+    "removed_relationships": [],
+    "changed": [
+      {
+        "id": "reaper:project:32b596941e5f4d74f7c0dbd7",
+        "type": "PROJECT",
+        "label": "Synthetic Session.RPP"
+      }
+    ],
+    "added_sends": [],
+    "parameter_changes": []
+  }
+}
